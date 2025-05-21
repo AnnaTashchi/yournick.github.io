@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Лабораторная работа № 3</title>
+    <style>
+        :root {
+            --primary: #6c5ce7;
+            --secondary: #a29bfe;
+            --dark: #2d3436;
+            --light: #f5f6fa;
+            --success: #00b894;
+            --danger: #d63031;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            padding: 20px;
+        }
+
+        .app-container {
+            width: 100%;
+            max-width: 800px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        .app-header {
+            background: var(--dark);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .app-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .app-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 30px;
+        }
+
+        .card {
+            background: var(--light);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+            .card:hover {
+                transform: translateY(-5px);
+            }
+
+        .card-title {
+            color: var(--dark);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--dark);
+            font-weight: 500;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #dfe6e9;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+            input:focus {
+                outline: none;
+                border-color: var(--primary);
+            }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            width: 100%;
+            text-align: center;
+            margin: 0 0 15px 0;
+        }
+
+            .btn:hover {
+                background: var(--dark);
+                transform: translateY(-2px);
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            }
+
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            border-left: 5px solid var(--primary);
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .age-result {
+            margin-top: 20px;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            font-weight: 500;
+            text-align: center;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .preference {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin: 0.5rem;
+        }
+
+        .education-table {
+            width: 100%;
+            text-align: center;
+            margin: 20px 0;
+            background: var(--light);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 25px;
+            background: var(--light);
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+
+        .calc-inputs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .resultCalc {
+            margin: 15px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            border-left: 5px solid var(--primary);
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-align: right;
+            min-height: 20px;
+        }
+
+        .calculator {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+            .calculator button {
+                padding: 15px;
+                border: none;
+                border-radius: 10px;
+                background: var(--light);
+                color: var(--dark);
+                font-size: 1.2rem;
+                font-weight: 600;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+
+        @media (max-width: 768px) {
+            .app-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <!--<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">-->
+</head>
+<body>
+    <div class="app-container">
+        <div class="app-header">
+            <h1 class="app-title">Лабораторная работа №3</h1>
+        </div>
+
+        <div class="app-content">
+            <div class="card">
+                <h2 class="card-title">Поиск минимального значения</h2>
+                <div class="form-group">
+                    <label for="num1">Первое число:</label>
+                    <input type="number" id="num1" placeholder="Введите число">
+                </div>
+                <div class="form-group">
+                    <label for="num2">Второе число:</label>
+                    <input type="number" id="num2" placeholder="Введите число">
+                </div>
+                <button class="btn" onclick="findMinimum()">Найти минимум</button>
+                <div class="result" id="result"></div>
+            </div>
+
+            <div class="card">
+                <h2 class="card-title">Назначение администратора</h2>
+                <div class="form-group">
+                    <label for="name">Ваше имя:</label>
+                    <input type="text" id="name" placeholder="Введите ваше имя">
+                </div>
+
+                <button class="btn" onclick="setAdmin()">Назначить админом</button>
+                <div class="result" id="result2"></div>
+            </div>
+
+            <div class="card">
+                <h2 class="card-title">Анкета</h2>
+                <div class="form-group">
+                    <label for="obr">Образование:</label>
+                    <input type="text" id="education" placeholder="Введите уровень образования">
+                </div>
+
+                <div class="preference">
+                    <label>
+                        <input type="checkbox" id="math"> Знание математики
+                    </label>
+                    <label>
+                        <input type="checkbox" id="programming"> Знание программирования
+                    </label>
+                </div>
+
+                <button class="btn" onclick="validateForm()">Проверить анкету</button>
+                <div class="result" id="result4"></div>
+            </div>
+
+            <div class="card">
+                <h2 class="card-title">Проверка возраста</h2>
+                <button class="btn" onclick="getUserAge()">Ввести возраст</button>
+                <div class="age-result" id="user-info"></div>
+            </div>
+
+            <div class="card">
+                <h2 class="card-title">Резюме</h2>
+                <div class="form-group">
+                    <label for="name1">Ваше имя:</label>
+                    <input type="text" id="name1" placeholder="Введите ваше имя">
+                </div>
+                <div class="form-group">
+                    <label for="surname">Ваша фамилия:</label>
+                    <input type="text" id="surname" placeholder="Введите вашу фамилию">
+                </div>
+                <div class="form-group">
+                    <label for="otch">Ваше отчество:</label>
+                    <input type="text" id="otch" placeholder="Введите ваше отчество">
+                </div>
+                <div class="form-group">
+                    <label for="work">Желаемая должность</label>
+                    <input type="text" id="work" placeholder="Введите желаемую должность">
+                </div>
+                <button class="btn" onclick="UpdateResume()">Обновить данные</button>
+                <div class="result" id="result3"></div>
+            </div>
+
+
+
+            <div class="card">
+                <h2 class="card-title">Резюме</h2>
+                <details class="form-group">
+                    <summary>Опыт работы</summary>
+                    <h4>Компания: life</h4>
+                    <p class="date">2018-2024</p>
+                    <ul>
+                        <li>Разработка вебсайтов</li>
+                        <li>SEO-оптимизация сайтов</li>
+                    </ul>
+                </details>
+
+                <table class="education-table">
+                    <tr>
+                        <th>Учреждение</th>
+                        <th>Специальность</th>
+                        <th>Годы</th>
+                    </tr>
+                    <tr>
+                        <td contenteditable="true">Университет МГТУ "СТАНКИН"</td>
+                        <td contenteditable="true">Программная инженерия</td>
+                        <td contenteditable="true">2018-2024</td>
+                    </tr>
+                </table>
+                <button class="btn" onclick="downloadResume()">  Скачать PDF</button>
+                <button class="btn" onclick="scrollToForm()">  Связаться</button>
+
+                <form id="contact-form" class="contact-form" onsubmit="return validateForm1(event)">
+                    <input type="text" placeholder="Имя" required>
+                    <input type="email" placeholder="Email" required>
+                    <textarea placeholder="Сообщение" rows="4" required></textarea>
+                    <button class="btn">Отправить</button>
+                </form>
+            </div>
+
+            <div class="card">
+                <h2 class="card-title">Калькулятор</h2>
+                <div class="form-group">
+                    <div class="calc-inputs">
+                        <input type="text" id="num1" placeholder="Число 1" readonly>
+                        <input type="text" id="num2" placeholder="Число 2" readonly>
+                    </div>
+                    <div class="resultCalc" id="calcResult"></div>
+
+                    <div class="calculator">
+
+                        <button onclick="addNumber('1')">1</button>
+                        <button onclick="addNumber('2')">2</button>
+                        <button onclick="addNumber('3')">3</button>
+                        <button onclick="setOperation('+')">+</button>
+
+                        <button onclick="addNumber('4')">4</button>
+                        <button onclick="addNumber('5')">5</button>
+                        <button onclick="addNumber('6')">6</button>
+                        <button onclick="setOperation('-')">-</button>
+
+                        <button onclick="addNumber('7')">7</button>
+                        <button onclick="addNumber('8')">8</button>
+                        <button onclick="addNumber('9')">9</button>
+                        <button onclick="setOperation('*')">*</button>
+
+                        <button onclick="addNumber('0')">0</button>
+                        <button onclick="clearInput()">C</button>
+                        <button onclick="calculate()">=</button>
+                        <button onclick="setOperation('/')">/</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+        function findMinimum() {
+            const number1 = parseFloat(document.getElementById("num1").value);
+            const number2 = parseFloat(document.getElementById("num2").value);
+            const resultDiv = document.getElementById("result");
+
+            if (isNaN(number1) || isNaN(number2)) {
+                resultDiv.textContent = "Пожалуйста, введите два числа";
+                resultDiv.style.borderLeftColor = "var(--danger)";
+            } else {
+                const minimum = Math.min(number1, number2);
+                resultDiv.textContent = `Минимальное число: ${minimum}`;
+                resultDiv.style.borderLeftColor = "var(--success)";
+            }
+        }
+
+        function setAdmin() {
+            const nameInput = document.getElementById("name");
+            const adminName = nameInput.value.trim();
+            const resultDiv = document.getElementById("result2");
+
+            if (!adminName) {
+                resultDiv.textContent = "Имя не может быть пустым";
+                resultDiv.style.borderLeftColor = "var(--danger)";
+            } else {
+                resultDiv.textContent = `Новый администратор: ${adminName}`;
+                resultDiv.style.borderLeftColor = "var(--success)";
+            }
+        }
+
+        function getUserAge() {
+            const age = prompt("Пожалуйста, введите ваш возраст:");
+            const userInfoDiv = document.getElementById("user-info");
+
+            if (!age) {
+                userInfoDiv.textContent = "Возраст не введён";
+                userInfoDiv.style.background = "#ffeaa7";
+                return;
+            }
+
+            const isConfirmed = confirm(`Вы уверены, что вам ${age} лет?`);
+
+            if (isConfirmed) {
+                userInfoDiv.textContent = `Подтверждённый возраст: ${age} лет`;
+                userInfoDiv.style.background = "#55efc4";
+            } else {
+                userInfoDiv.textContent = "Возраст не подтверждён";
+                userInfoDiv.style.background = "#ff7675";
+            }
+        }
+
+        function UpdateResume() {
+            const nameInput = document.getElementById("name1");
+            const surnameInput = document.getElementById("surname");
+            const otchInput = document.getElementById("otch");
+            const workInput = document.getElementById("work");
+            const resultDiv = document.getElementById("result3");
+
+            const resumeName = nameInput.value.trim();
+            const resumeSurname = surnameInput.value.trim();
+            const resumeOtch = otchInput.value.trim();
+            const resumeWork = workInput.value.trim();
+
+            if (!resumeName || !resumeSurname || !resumeOtch || !resumeWork) {
+                resultDiv.textContent = "Заполните все поля";
+                resultDiv.style.borderLeftColor = "var(--danger)";
+            } else {
+                resultDiv.innerHTML = `
+                                    Имя: ${resumeName}<br>
+                                    Фамилия: ${resumeSurname}<br>
+                                    Отчество: ${resumeOtch}<br>
+                                    Должность: ${resumeWork}`;
+                resultDiv.style.borderLeftColor = "var(--success)";
+            }
+        }
+
+        function validateForm() {
+            const education = document.getElementById("education").value.trim();
+            const math = document.getElementById("math").checked;
+            const programming = document.getElementById("programming").checked;
+            const resultDiv = document.getElementById("result4");
+
+            if (!education || !math || !programming) {
+                resultDiv.textContent = "Заполните все поля";
+                resultDiv.style.borderLeftColor = "var(--danger)";
+            } else {
+                resultDiv.textContent = "Анкета заполнена успешно!";
+                resultDiv.style.borderLeftColor = "var(--success)";
+            }
+        }
+
+        function scrollToForm() {
+            document.getElementById('contact-form').scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        function validateForm1(event) {
+            const inputs = event.target.elements;
+            let isValid = true;
+
+            Array.from(inputs).forEach(input => {
+                if (!input.checkValidity()) {
+                    input.style.borderColor = '#f7a6b8';
+                    isValid = false;
+                }
+            });
+            if (isValid) alert('Сообщение отправлено!');
+            return false;
+        }
+
+        function downloadResume() {
+            alert('Генерация PDF...');
+        }
+
+        let activeInput = 'num1';
+        let currentOperation = null;
+        let shouldClearInput = false;
+
+        document.getElementById('num1').addEventListener('focus', () => activeInput = 'num1');
+        document.getElementById('num2').addEventListener('focus', () => activeInput = 'num2');
+
+        function addNumber(num) {
+            const input = document.getElementById(activeInput);
+            if (shouldClearInput) {
+                input.value = '';
+                shouldClearInput = false;
+            }
+            input.value += num;
+        }
+
+        function setOperation(operation) {
+            if (document.getElementById('num1').value && document.getElementById('num2').value) {
+                calculate();
+            }
+            currentOperation = operation;
+            activeInput = 'num2';
+            shouldClearInput = true;
+        }
+
+        function clearInput() {
+            document.getElementById('num1').value = "";
+            document.getElementById('num2').value = "";
+            document.getElementById('calcResult').textContent = "";
+            document.getElementById('calcResult').style.backgroundColor = "";
+            currentOperation = null;
+            activeInput = 'num1';
+        }
+
+        function calculate() {
+            const num1 = parseFloat(document.getElementById('num1').value) || 0;
+            const num2 = parseFloat(document.getElementById('num2').value) || 0;
+            let result;
+
+            if (!currentOperation) {
+                document.getElementById('calcResult').textContent = 'Выберите операцию';
+                return;
+            }
+
+            switch (currentOperation) {
+                case '+': result = num1 + num2; break;
+                case '-': result = num1 - num2; break;
+                case '*': result = num1 * num2; break;
+                case '/':
+                    if (num2 === 0) {
+                        document.getElementById('calcResult').textContent = 'Ошибка: деление на 0';
+                        document.getElementById('calcResult').style.backgroundColor = '#ffcccc';
+                        return;
+                    }
+                    result = num1 / num2;
+                    break;
+                default:
+                    document.getElementById('calcResult').textContent = 'Неизвестная операция';
+                    return;
+            }
+
+            const resultField = document.getElementById('calcResult');
+            resultField.textContent = result;
+
+            if (result > 15) {
+                resultField.style.backgroundColor = '#ffcccc';
+                resultField.textContent = 'Результат: ' + result + ' (число > 15)';
+            } else {
+                resultField.style.backgroundColor = '';
+                resultField.textContent = 'Результат: ' + result;
+                resultDiv.style.borderLeftColor = "var(--success)";
+            }
+
+            document.getElementById('num1').value = result;
+            document.getElementById('num2').value = '';
+            activeInput = 'num1';
+            shouldClearInput = true;
+        }
+
+        </script>
+</body>
+</html>
