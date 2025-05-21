@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <title>Лабораторная работа № 3</title>
+    <title>Р›Р°Р±РѕСЂР°С‚РѕСЂРЅР°СЏ СЂР°Р±РѕС‚Р° в„– 3</title>
     <style>
         :root {
             --primary: #6c5ce7;
@@ -219,126 +219,126 @@
 <body>
     <div class="app-container">
         <div class="app-header">
-            <h1 class="app-title">Лабораторная работа №3</h1>
+            <h1 class="app-title">Р›Р°Р±РѕСЂР°С‚РѕСЂРЅР°СЏ СЂР°Р±РѕС‚Р° в„–3</h1>
         </div>
 
         <div class="app-content">
             <div class="card">
-                <h2 class="card-title">Поиск минимального значения</h2>
+                <h2 class="card-title">РџРѕРёСЃРє РјРёРЅРёРјР°Р»СЊРЅРѕРіРѕ Р·РЅР°С‡РµРЅРёСЏ</h2>
                 <div class="form-group">
-                    <label for="num1">Первое число:</label>
-                    <input type="number" id="num1" placeholder="Введите число">
+                    <label for="num1">РџРµСЂРІРѕРµ С‡РёСЃР»Рѕ:</label>
+                    <input type="number" id="num1" placeholder="Р’РІРµРґРёС‚Рµ С‡РёСЃР»Рѕ">
                 </div>
                 <div class="form-group">
-                    <label for="num2">Второе число:</label>
-                    <input type="number" id="num2" placeholder="Введите число">
+                    <label for="num2">Р’С‚РѕСЂРѕРµ С‡РёСЃР»Рѕ:</label>
+                    <input type="number" id="num2" placeholder="Р’РІРµРґРёС‚Рµ С‡РёСЃР»Рѕ">
                 </div>
-                <button class="btn" onclick="findMinimum()">Найти минимум</button>
+                <button class="btn" onclick="findMinimum()">РќР°Р№С‚Рё РјРёРЅРёРјСѓРј</button>
                 <div class="result" id="result"></div>
             </div>
 
             <div class="card">
-                <h2 class="card-title">Назначение администратора</h2>
+                <h2 class="card-title">РќР°Р·РЅР°С‡РµРЅРёРµ Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂР°</h2>
                 <div class="form-group">
-                    <label for="name">Ваше имя:</label>
-                    <input type="text" id="name" placeholder="Введите ваше имя">
+                    <label for="name">Р’Р°С€Рµ РёРјСЏ:</label>
+                    <input type="text" id="name" placeholder="Р’РІРµРґРёС‚Рµ РІР°С€Рµ РёРјСЏ">
                 </div>
 
-                <button class="btn" onclick="setAdmin()">Назначить админом</button>
+                <button class="btn" onclick="setAdmin()">РќР°Р·РЅР°С‡РёС‚СЊ Р°РґРјРёРЅРѕРј</button>
                 <div class="result" id="result2"></div>
             </div>
 
             <div class="card">
-                <h2 class="card-title">Анкета</h2>
+                <h2 class="card-title">РђРЅРєРµС‚Р°</h2>
                 <div class="form-group">
-                    <label for="obr">Образование:</label>
-                    <input type="text" id="education" placeholder="Введите уровень образования">
+                    <label for="obr">РћР±СЂР°Р·РѕРІР°РЅРёРµ:</label>
+                    <input type="text" id="education" placeholder="Р’РІРµРґРёС‚Рµ СѓСЂРѕРІРµРЅСЊ РѕР±СЂР°Р·РѕРІР°РЅРёСЏ">
                 </div>
 
                 <div class="preference">
                     <label>
-                        <input type="checkbox" id="math"> Знание математики
+                        <input type="checkbox" id="math"> Р—РЅР°РЅРёРµ РјР°С‚РµРјР°С‚РёРєРё
                     </label>
                     <label>
-                        <input type="checkbox" id="programming"> Знание программирования
+                        <input type="checkbox" id="programming"> Р—РЅР°РЅРёРµ РїСЂРѕРіСЂР°РјРјРёСЂРѕРІР°РЅРёСЏ
                     </label>
                 </div>
 
-                <button class="btn" onclick="validateForm()">Проверить анкету</button>
+                <button class="btn" onclick="validateForm()">РџСЂРѕРІРµСЂРёС‚СЊ Р°РЅРєРµС‚Сѓ</button>
                 <div class="result" id="result4"></div>
             </div>
 
             <div class="card">
-                <h2 class="card-title">Проверка возраста</h2>
-                <button class="btn" onclick="getUserAge()">Ввести возраст</button>
+                <h2 class="card-title">РџСЂРѕРІРµСЂРєР° РІРѕР·СЂР°СЃС‚Р°</h2>
+                <button class="btn" onclick="getUserAge()">Р’РІРµСЃС‚Рё РІРѕР·СЂР°СЃС‚</button>
                 <div class="age-result" id="user-info"></div>
             </div>
 
             <div class="card">
-                <h2 class="card-title">Резюме</h2>
+                <h2 class="card-title">Р РµР·СЋРјРµ</h2>
                 <div class="form-group">
-                    <label for="name1">Ваше имя:</label>
-                    <input type="text" id="name1" placeholder="Введите ваше имя">
+                    <label for="name1">Р’Р°С€Рµ РёРјСЏ:</label>
+                    <input type="text" id="name1" placeholder="Р’РІРµРґРёС‚Рµ РІР°С€Рµ РёРјСЏ">
                 </div>
                 <div class="form-group">
-                    <label for="surname">Ваша фамилия:</label>
-                    <input type="text" id="surname" placeholder="Введите вашу фамилию">
+                    <label for="surname">Р’Р°С€Р° С„Р°РјРёР»РёСЏ:</label>
+                    <input type="text" id="surname" placeholder="Р’РІРµРґРёС‚Рµ РІР°С€Сѓ С„Р°РјРёР»РёСЋ">
                 </div>
                 <div class="form-group">
-                    <label for="otch">Ваше отчество:</label>
-                    <input type="text" id="otch" placeholder="Введите ваше отчество">
+                    <label for="otch">Р’Р°С€Рµ РѕС‚С‡РµСЃС‚РІРѕ:</label>
+                    <input type="text" id="otch" placeholder="Р’РІРµРґРёС‚Рµ РІР°С€Рµ РѕС‚С‡РµСЃС‚РІРѕ">
                 </div>
                 <div class="form-group">
-                    <label for="work">Желаемая должность</label>
-                    <input type="text" id="work" placeholder="Введите желаемую должность">
+                    <label for="work">Р–РµР»Р°РµРјР°СЏ РґРѕР»Р¶РЅРѕСЃС‚СЊ</label>
+                    <input type="text" id="work" placeholder="Р’РІРµРґРёС‚Рµ Р¶РµР»Р°РµРјСѓСЋ РґРѕР»Р¶РЅРѕСЃС‚СЊ">
                 </div>
-                <button class="btn" onclick="UpdateResume()">Обновить данные</button>
+                <button class="btn" onclick="UpdateResume()">РћР±РЅРѕРІРёС‚СЊ РґР°РЅРЅС‹Рµ</button>
                 <div class="result" id="result3"></div>
             </div>
 
 
 
             <div class="card">
-                <h2 class="card-title">Резюме</h2>
+                <h2 class="card-title">Р РµР·СЋРјРµ</h2>
                 <details class="form-group">
-                    <summary>Опыт работы</summary>
-                    <h4>Компания: life</h4>
+                    <summary>РћРїС‹С‚ СЂР°Р±РѕС‚С‹</summary>
+                    <h4>РљРѕРјРїР°РЅРёСЏ: life</h4>
                     <p class="date">2018-2024</p>
                     <ul>
-                        <li>Разработка вебсайтов</li>
-                        <li>SEO-оптимизация сайтов</li>
+                        <li>Р Р°Р·СЂР°Р±РѕС‚РєР° РІРµР±СЃР°Р№С‚РѕРІ</li>
+                        <li>SEO-РѕРїС‚РёРјРёР·Р°С†РёСЏ СЃР°Р№С‚РѕРІ</li>
                     </ul>
                 </details>
 
                 <table class="education-table">
                     <tr>
-                        <th>Учреждение</th>
-                        <th>Специальность</th>
-                        <th>Годы</th>
+                        <th>РЈС‡СЂРµР¶РґРµРЅРёРµ</th>
+                        <th>РЎРїРµС†РёР°Р»СЊРЅРѕСЃС‚СЊ</th>
+                        <th>Р“РѕРґС‹</th>
                     </tr>
                     <tr>
-                        <td contenteditable="true">Университет МГТУ "СТАНКИН"</td>
-                        <td contenteditable="true">Программная инженерия</td>
+                        <td contenteditable="true">РЈРЅРёРІРµСЂСЃРёС‚РµС‚ РњР“РўРЈ "РЎРўРђРќРљРРќ"</td>
+                        <td contenteditable="true">РџСЂРѕРіСЂР°РјРјРЅР°СЏ РёРЅР¶РµРЅРµСЂРёСЏ</td>
                         <td contenteditable="true">2018-2024</td>
                     </tr>
                 </table>
-                <button class="btn" onclick="downloadResume()">  Скачать PDF</button>
-                <button class="btn" onclick="scrollToForm()">  Связаться</button>
+                <button class="btn" onclick="downloadResume()">  РЎРєР°С‡Р°С‚СЊ PDF</button>
+                <button class="btn" onclick="scrollToForm()">  РЎРІСЏР·Р°С‚СЊСЃСЏ</button>
 
                 <form id="contact-form" class="contact-form" onsubmit="return validateForm1(event)">
-                    <input type="text" placeholder="Имя" required>
+                    <input type="text" placeholder="РРјСЏ" required>
                     <input type="email" placeholder="Email" required>
-                    <textarea placeholder="Сообщение" rows="4" required></textarea>
-                    <button class="btn">Отправить</button>
+                    <textarea placeholder="РЎРѕРѕР±С‰РµРЅРёРµ" rows="4" required></textarea>
+                    <button class="btn">РћС‚РїСЂР°РІРёС‚СЊ</button>
                 </form>
             </div>
 
             <div class="card">
-                <h2 class="card-title">Калькулятор</h2>
+                <h2 class="card-title">РљР°Р»СЊРєСѓР»СЏС‚РѕСЂ</h2>
                 <div class="form-group">
                     <div class="calc-inputs">
-                        <input type="text" id="num1" placeholder="Число 1" readonly>
-                        <input type="text" id="num2" placeholder="Число 2" readonly>
+                        <input type="text" id="num1" placeholder="Р§РёСЃР»Рѕ 1" readonly>
+                        <input type="text" id="num2" placeholder="Р§РёСЃР»Рѕ 2" readonly>
                     </div>
                     <div class="resultCalc" id="calcResult"></div>
 
@@ -375,11 +375,11 @@
             const resultDiv = document.getElementById("result");
 
             if (isNaN(number1) || isNaN(number2)) {
-                resultDiv.textContent = "Пожалуйста, введите два числа";
+                resultDiv.textContent = "РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРІРµРґРёС‚Рµ РґРІР° С‡РёСЃР»Р°";
                 resultDiv.style.borderLeftColor = "var(--danger)";
             } else {
                 const minimum = Math.min(number1, number2);
-                resultDiv.textContent = `Минимальное число: ${minimum}`;
+                resultDiv.textContent = `РњРёРЅРёРјР°Р»СЊРЅРѕРµ С‡РёСЃР»Рѕ: ${minimum}`;
                 resultDiv.style.borderLeftColor = "var(--success)";
             }
         }
@@ -390,31 +390,31 @@
             const resultDiv = document.getElementById("result2");
 
             if (!adminName) {
-                resultDiv.textContent = "Имя не может быть пустым";
+                resultDiv.textContent = "РРјСЏ РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РїСѓСЃС‚С‹Рј";
                 resultDiv.style.borderLeftColor = "var(--danger)";
             } else {
-                resultDiv.textContent = `Новый администратор: ${adminName}`;
+                resultDiv.textContent = `РќРѕРІС‹Р№ Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ: ${adminName}`;
                 resultDiv.style.borderLeftColor = "var(--success)";
             }
         }
 
         function getUserAge() {
-            const age = prompt("Пожалуйста, введите ваш возраст:");
+            const age = prompt("РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРІРµРґРёС‚Рµ РІР°С€ РІРѕР·СЂР°СЃС‚:");
             const userInfoDiv = document.getElementById("user-info");
 
             if (!age) {
-                userInfoDiv.textContent = "Возраст не введён";
+                userInfoDiv.textContent = "Р’РѕР·СЂР°СЃС‚ РЅРµ РІРІРµРґС‘РЅ";
                 userInfoDiv.style.background = "#ffeaa7";
                 return;
             }
 
-            const isConfirmed = confirm(`Вы уверены, что вам ${age} лет?`);
+            const isConfirmed = confirm(`Р’С‹ СѓРІРµСЂРµРЅС‹, С‡С‚Рѕ РІР°Рј ${age} Р»РµС‚?`);
 
             if (isConfirmed) {
-                userInfoDiv.textContent = `Подтверждённый возраст: ${age} лет`;
+                userInfoDiv.textContent = `РџРѕРґС‚РІРµСЂР¶РґС‘РЅРЅС‹Р№ РІРѕР·СЂР°СЃС‚: ${age} Р»РµС‚`;
                 userInfoDiv.style.background = "#55efc4";
             } else {
-                userInfoDiv.textContent = "Возраст не подтверждён";
+                userInfoDiv.textContent = "Р’РѕР·СЂР°СЃС‚ РЅРµ РїРѕРґС‚РІРµСЂР¶РґС‘РЅ";
                 userInfoDiv.style.background = "#ff7675";
             }
         }
@@ -432,14 +432,14 @@
             const resumeWork = workInput.value.trim();
 
             if (!resumeName || !resumeSurname || !resumeOtch || !resumeWork) {
-                resultDiv.textContent = "Заполните все поля";
+                resultDiv.textContent = "Р—Р°РїРѕР»РЅРёС‚Рµ РІСЃРµ РїРѕР»СЏ";
                 resultDiv.style.borderLeftColor = "var(--danger)";
             } else {
                 resultDiv.innerHTML = `
-                                    Имя: ${resumeName}<br>
-                                    Фамилия: ${resumeSurname}<br>
-                                    Отчество: ${resumeOtch}<br>
-                                    Должность: ${resumeWork}`;
+                                    РРјСЏ: ${resumeName}<br>
+                                    Р¤Р°РјРёР»РёСЏ: ${resumeSurname}<br>
+                                    РћС‚С‡РµСЃС‚РІРѕ: ${resumeOtch}<br>
+                                    Р”РѕР»Р¶РЅРѕСЃС‚СЊ: ${resumeWork}`;
                 resultDiv.style.borderLeftColor = "var(--success)";
             }
         }
@@ -451,10 +451,10 @@
             const resultDiv = document.getElementById("result4");
 
             if (!education || !math || !programming) {
-                resultDiv.textContent = "Заполните все поля";
+                resultDiv.textContent = "Р—Р°РїРѕР»РЅРёС‚Рµ РІСЃРµ РїРѕР»СЏ";
                 resultDiv.style.borderLeftColor = "var(--danger)";
             } else {
-                resultDiv.textContent = "Анкета заполнена успешно!";
+                resultDiv.textContent = "РђРЅРєРµС‚Р° Р·Р°РїРѕР»РЅРµРЅР° СѓСЃРїРµС€РЅРѕ!";
                 resultDiv.style.borderLeftColor = "var(--success)";
             }
         }
@@ -475,12 +475,12 @@
                     isValid = false;
                 }
             });
-            if (isValid) alert('Сообщение отправлено!');
+            if (isValid) alert('РЎРѕРѕР±С‰РµРЅРёРµ РѕС‚РїСЂР°РІР»РµРЅРѕ!');
             return false;
         }
 
         function downloadResume() {
-            alert('Генерация PDF...');
+            alert('Р“РµРЅРµСЂР°С†РёСЏ PDF...');
         }
 
         let activeInput = 'num1';
@@ -523,7 +523,7 @@
             let result;
 
             if (!currentOperation) {
-                document.getElementById('calcResult').textContent = 'Выберите операцию';
+                document.getElementById('calcResult').textContent = 'Р’С‹Р±РµСЂРёС‚Рµ РѕРїРµСЂР°С†РёСЋ';
                 return;
             }
 
@@ -533,14 +533,14 @@
                 case '*': result = num1 * num2; break;
                 case '/':
                     if (num2 === 0) {
-                        document.getElementById('calcResult').textContent = 'Ошибка: деление на 0';
+                        document.getElementById('calcResult').textContent = 'РћС€РёР±РєР°: РґРµР»РµРЅРёРµ РЅР° 0';
                         document.getElementById('calcResult').style.backgroundColor = '#ffcccc';
                         return;
                     }
                     result = num1 / num2;
                     break;
                 default:
-                    document.getElementById('calcResult').textContent = 'Неизвестная операция';
+                    document.getElementById('calcResult').textContent = 'РќРµРёР·РІРµСЃС‚РЅР°СЏ РѕРїРµСЂР°С†РёСЏ';
                     return;
             }
 
@@ -549,10 +549,10 @@
 
             if (result > 15) {
                 resultField.style.backgroundColor = '#ffcccc';
-                resultField.textContent = 'Результат: ' + result + ' (число > 15)';
+                resultField.textContent = 'Р РµР·СѓР»СЊС‚Р°С‚: ' + result + ' (С‡РёСЃР»Рѕ > 15)';
             } else {
                 resultField.style.backgroundColor = '';
-                resultField.textContent = 'Результат: ' + result;
+                resultField.textContent = 'Р РµР·СѓР»СЊС‚Р°С‚: ' + result;
                 resultDiv.style.borderLeftColor = "var(--success)";
             }
 
